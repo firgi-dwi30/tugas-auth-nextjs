@@ -1,11 +1,12 @@
-import { withAuth } from "next-auth/middleware";
+// GANTI line 1 menjadi ini:
+import { withAuth } from "next-auth/middleware"; 
 
 export default withAuth({
-  callbacks: {
-    authorized: ({ token }) => !!token, // Cek apakah user punya token login
+  pages: {
+    signIn: "/login",
   },
 });
 
-export const config = {
-  matcher: ["/dashboard/:path*"], // Semua link yang berawalan /dashboard akan dilindungi
+export const config = { 
+  matcher: ["/dashboard/:path*"] 
 };
